@@ -4,6 +4,10 @@ const bodyParser = require('body-parser')
 var fs = require('fs');
 var path = require('path');
 const app = express()
+
+const category = require('./localStorage/category');
+const products = require('./localStorage/products');
+
 const port = 3000
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -26,14 +30,17 @@ var upload = multer({ storage: storage });
 
 const mainProg = ()=> {
 
-    app.get('/products', (req, res) => {
-        productSchema.find({}, (err, product)=>{
-            if(err){
-                console.log(err);
-            }else{
-                res.render('home', { items: product });
-            }
-        })
+    app.get('/', (req, res) => {
+        // productSchema.find({}, (err, product)=>{
+        //     if(err){
+        //         console.log(err);
+        //     }else{
+        //         res.render('home', { items: product });
+        //     }
+        // })
+
+        res.render('home',{"items": products, "cat": category});
+        // console.log(products);
     })
 
     app.post('/addProduct', upload.single('image'), (req, res)=>{
