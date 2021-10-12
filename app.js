@@ -9,10 +9,7 @@ const port = 3000
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.set("view engine", "ejs");
-// const obj = {
-//     name:"tomato",
-//     price:25
-// }
+
 
 var multer = require('multer');
   
@@ -34,7 +31,7 @@ const mainProg = ()=> {
             if(err){
                 console.log(err);
             }else{
-                res.render('index', { items: product });
+                res.render('home', { items: product });
             }
         })
     })
