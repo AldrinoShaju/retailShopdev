@@ -1,5 +1,6 @@
 const express = require('express')
 const productSchema = require('./schema/products')
+const ejs = require("ejs");
 const bodyParser = require('body-parser')
 var fs = require('fs');
 var path = require('path');
@@ -10,9 +11,12 @@ const products = require('./localStorage/products');
 
 const port = 3000
 
+
+
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 
 var multer = require('multer');
