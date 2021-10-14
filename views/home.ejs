@@ -17,9 +17,14 @@
                     <div class="card" style="width: 13rem;">
                         <img class="prod-img" src=<%=item.img %> alt="">
                         <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">
-                                <%=item.name %>
-                            </h5>
+                            <h6 class="card-title" style="text-align: center;">
+                                <% if(item.name.length>20){ %>
+                                    <%=item.name.substring(0, 30) + "...." %> 
+                                <% }else{ %>
+                                    <%=item.name %> 
+                                <% } %> 
+                                
+                            </h6>
                             <p class="card-text">
                                 <%=item.Brand %>
                             </p>
