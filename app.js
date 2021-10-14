@@ -34,7 +34,11 @@ var upload = multer({ storage: storage });
 
 const mainProg = ()=> {
 
-    app.get('/', (req, res) => {
+    app.get("/", (req, res)=>{
+        res.render('home',{"items": products, "cat": category});
+    })
+
+    app.get('/:category', (req, res) => {
         // productSchema.find({}, (err, product)=>{
         //     if(err){
         //         console.log(err);
@@ -43,8 +47,12 @@ const mainProg = ()=> {
         //     }
         // })
 
-        res.render('home',{"items": products, "cat": category});
-        // console.log(products);
+        if(req.params.category==="Home"){
+            res.redirect("/");
+        }else{
+            let productItems = products.filter(product=>product.category===req.params.category);
+            res.render('home',{"items": productItems, "cat": category});
+        }
     })
 
     app.post('/addProduct', upload.single('image'), (req, res)=>{
