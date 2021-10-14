@@ -81,6 +81,13 @@ const mainProg = ()=> {
         // newProduct.create()
     })
 
+    app.get("/productID/:id", (req, res)=>{
+       
+        let selectedProduct = products.filter(product=>product.id==req.params.id)
+        // console.log(selectedProduct);
+        res.render("productDetails", {"product":selectedProduct})
+    })
+
     app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
     })

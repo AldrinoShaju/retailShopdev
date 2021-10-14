@@ -16,6 +16,7 @@
         <div class="row row-cols-auto d-flex justify-content-center">
             <% items.forEach(item=> { %>
                 <div class="col" style="margin-bottom: 24px;">
+                    
                     <div class="card" style="width: 13rem;">
                         <img class="prod-img" src=<%=item.img %> alt="">
                         <div class="card-body">
@@ -33,6 +34,7 @@
                             <p class="card-text">
                                 ₹ <%=item.sellingPrice %>
                             </p>
+                            <a href="/productID/<%=item.id %> " class="stretched-link"></a>
                             <div class="d-grid gap-2">
                                 <a href="#" class="btn btn-success btn-block">Add to Cart</a>
                                 <a href="#" class="btn btn-warning btn-block">Buy Now</a>
