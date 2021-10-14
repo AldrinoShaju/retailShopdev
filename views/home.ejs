@@ -1,14 +1,16 @@
 <%- include('header'); -%>
 <div class="row">
     <div class="col-md-3" style="background-color: rgb(255, 255, 255);">
-        <ul class="list-group list-group-flush">
-            
-            <% cat.forEach(element => {%>
-                <li class="list-group-item d-flex justify-content-between align-items-center custHover"><%=element.name  %>
-                    <span class="badge bg-primary rounded-pill"><%=element.quantity %> </span>
-                </li>
-            <% }); %> 
-        </ul>
+        <div class="list-group list-group-flush">
+            <% cat.forEach(element=> {%>
+                <a href="/<%=element.name %> " class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <%=element.name %>
+                    <span class="badge bg-primary rounded-pill">
+                        <%=element.quantity %>
+                    </span>
+                </a>
+            <% }); %>
+        </div>
     </div>
     <div class="col-md-9" style="background-color: rgb(255, 255, 255);">
         <div class="row row-cols-auto d-flex justify-content-center">
