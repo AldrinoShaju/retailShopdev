@@ -1,5 +1,9 @@
 const category = [
     {
+        name: "Home",
+        quantity: 28
+    },
+    {
         name: "Produce",
         quantity: 8
     },
