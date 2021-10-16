@@ -38,7 +38,7 @@ const mainProg = ()=> {
         res.render('home',{"items": products, "cat": category});
     })
 
-    app.get('/:category', (req, res) => {
+    app.get('/category/:category', (req, res) => {
         // productSchema.find({}, (err, product)=>{
         //     if(err){
         //         console.log(err);
@@ -86,6 +86,14 @@ const mainProg = ()=> {
         let selectedProduct = products.filter(product=>product.id==req.params.id)
         // console.log(selectedProduct);
         res.render("productDetails", {"product":selectedProduct})
+    })
+
+    app.get("/addCart", (req, res)=>{
+        res.send("Add to Cart Clicked")
+    })
+    
+    app.get("/buyNow", (req, res)=>{
+        res.send("Buy Now Clicked")
     })
 
     app.listen(port, () => {
