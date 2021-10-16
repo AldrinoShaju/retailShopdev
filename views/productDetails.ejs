@@ -1,19 +1,52 @@
 <%- include('header'); -%>
-<p><%=product[0].category %>-><%=product[0].name %></p>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 pic d-flex justify-content-center"> 
-            <img class="prod-detail-img" src=<%=product[0].img  %>  alt="">    
+
+<div class="row">
+    <div class="col-md-3" style="background-color: rgb(255, 255, 255);">
+        <div class="list-group list-group-flush">
+            <% cat.forEach(element=> {%>
+                <a href="/category/<%=element.name %>"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <%=element.name %>
+                        <span class="badge bg-primary rounded-pill">
+                            <%=element.quantity %>
+                        </span>
+                </a>
+                <% }); %>
         </div>
-        <div class="col-md-6 desc">
-            <h2><%=product[0].name %> </h2>
-            <h4><%=product[0].Brand %></h4>
-            <h6><%=product[0].sellingPrice %></h6>
-            <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button">Buy Now</button>
-                <button class="btn btn-primary" type="button">Add to Cart</button>
+    </div>
+    <div class="col-md-9" style="background-color: rgb(255, 255, 255);">
+        <p>
+            <span ><a class="link-light" href="/">Home-></a></span>
+            <span ><a class="link-light" href="/category/<%=product[0].category %>"><%=product[0].category %>-></a></span>
+            <span>
+                    <%=product[0].name %>
+                </span>
+            
+        </p>
+        <div class="container prod-details">
+            <div class="row">
+                <div class="col-md-6 pic d-flex justify-content-center">
+                    <img class="prod-detail-img" src=<%=product[0].img %> alt="">
+                </div>
+                <div class="col-md-6 desc">
+                    <h2>
+                        <%=product[0].name %>
+                    </h2>
+                    <h4>
+                        <%=product[0].Brand %>
+                    </h4>
+                    <p>
+                        ₹ <%=product[0].sellingPrice %><%=product[0].priceBy %> 
+                    </p>
+                    <div class="d-grid gap-2 prod-buttons">
+                        <button class="btn btn-outline-success" type="button">Buy Now</button>
+                        <button class="btn btn-warning" type="button">Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+
+
 <%- include('footer'); -%>

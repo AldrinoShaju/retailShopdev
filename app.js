@@ -85,7 +85,7 @@ const mainProg = ()=> {
        
         let selectedProduct = products.filter(product=>product.id==req.params.id)
         // console.log(selectedProduct);
-        res.render("productDetails", {"product":selectedProduct})
+        res.render("productDetails", {"product":selectedProduct, "cat":category})
     })
 
     app.get("/addCart", (req, res)=>{
